@@ -11,6 +11,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        notoSky:"#C3EBFA",
+        notoSkyLight:"#EDF9FD",
+        notoPurple:"#CFCEFF",
+        notoPurpleLight:"#F1F0FF",
+        notoYellow:"#FAE27C",
+        notoYellowLight:"#FEFCE8",
+
+
       },
     },
   },
