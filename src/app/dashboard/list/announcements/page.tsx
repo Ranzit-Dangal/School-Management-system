@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Announcement from "../../../components/Announcement";
+import FormModal from "@/app/components/FormModal";
 
 // temporary data
 type Announcement = {
@@ -43,17 +44,21 @@ const AnnouncementListPage = () => {
 
       <td>
         <div className="flex items-center gap-2">
-          <Link href={`/list/teachers/${item.id}`}>
+          {/* <Link href={`/list/teachers/${item.id}`}>
             <button className="rounded-full w-7 h-7 flex items-center justify-center bg-notoSky ">
               <Image src={"/edit.png"} alt="" width={16} height={16} />
             </button>
-          </Link>
+          </Link> */}
           {/* since a student doesnot have the role to delete or add any data in the
           dashboard, we are giving specific role the data */}
           {role === "admin" && (
-            <button className="rounded-full w-7 h-7 flex items-center justify-center bg-notoPurple ">
-              <Image src={"/delete.png"} alt="" width={16} height={16} />
-            </button>
+            // <button className="rounded-full w-7 h-7 flex items-center justify-center bg-notoPurple ">
+            //   <Image src={"/delete.png"} alt="" width={16} height={16} />
+            // </button>
+            <>
+              <FormModal table="announcement" type="update" data={item} />
+              <FormModal table="announcement" type="delete" id={item.id} />
+            </>
           )}
         </div>
       </td>

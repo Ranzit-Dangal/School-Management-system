@@ -1,9 +1,9 @@
+import FormModal from "@/app/components/FormModal";
 import Pagination from "@/app/components/Pagination";
 import Table from "@/app/components/Table";
 import TableSearch from "@/app/components/TableSearch";
 import { parentsData, role } from "@/lib/data";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 // temporary data
@@ -55,17 +55,22 @@ const ParentListPage = () => {
       <td className="hidden md:table-cell">{item.address}</td>
       <td>
         <div className="flex items-center gap-2">
-          <Link href={`/list/teachers/${item.id}`}>
+          {/* <Link href={`/list/teachers/${item.id}`}>
             <button className="rounded-full w-7 h-7 flex items-center justify-center bg-notoSky ">
               <Image src={"/edit.png"} alt="" width={16} height={16} />
             </button>
-          </Link>
+          </Link> */}
+
           {/* since a student doesnot have the role to delete or add any data in the
           dashboard, we are giving specific role the data */}
           {role === "admin" && (
-            <button className="rounded-full w-7 h-7 flex items-center justify-center bg-notoPurple ">
-              <Image src={"/delete.png"} alt="" width={16} height={16} />
-            </button>
+            // <button className="rounded-full w-7 h-7 flex items-center justify-center bg-notoPurple ">
+            //   <Image src={"/delete.png"} alt="" width={16} height={16} />
+            // </button>
+            <>
+              <FormModal table="parent" type="update" data={item} />
+              <FormModal table="parent" type="delete" id={item.id} />
+            </>
           )}
         </div>
       </td>
@@ -90,9 +95,10 @@ const ParentListPage = () => {
             </button>
             {/* 3rd button */}
             {role === "admin" && (
-              <button className="w-7 h-7 items-center justify-center bg-notoYellow rounded-full flex">
-                <Image src={"/plus.png"} alt="" width={14} height={14} />
-              </button>
+              // <button className="w-7 h-7 items-center justify-center bg-notoYellow rounded-full flex">
+              //   <Image src={"/plus.png"} alt="" width={14} height={14} />
+              // </button>
+              <FormModal table="parent" type="create" />
             )}
           </div>
         </div>
