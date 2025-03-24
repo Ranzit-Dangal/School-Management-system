@@ -4,7 +4,6 @@ import Table from "@/app/components/Table";
 import TableSearch from "@/app/components/TableSearch";
 import { role, subjectsData } from "@/lib/data";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 // temporary data
