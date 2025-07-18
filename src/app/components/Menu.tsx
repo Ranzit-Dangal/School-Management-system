@@ -39,7 +39,7 @@ const menuItems = [
       {
         icon: "/class.png",
         label: "Classes",
-        href: "/dashboard/list/classes",
+        href: "/",
         visible: ["admin", "teacher"],
       },
       {
