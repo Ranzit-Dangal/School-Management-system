@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Card = ({ type }: { type: string }) => {
   return (
     <div className="p-4 rounded-2xl odd:bg-notoPurple even:bg-notoYellow flex-1 min-w-[130px]">
